@@ -15,7 +15,7 @@ bool      bypass;
 
 Led led1, led2;
 
-Parameter lfo_speed, amplitude, res_freq;
+Parameter lfo_speed, amplitude, res_freq, vol;
 
 // This runs at a fixed rate, to prepare audio samples
 void callback(float *in, float *out, size_t size)
@@ -36,15 +36,17 @@ void callback(float *in, float *out, size_t size)
 
     for(size_t i = 0; i < size; i += 2)
     {
-        float dryl, dryr, freq, outputl, outputr;
+        float dryl, dryr, freq, outputl, outputr, volume;
         dryl  = in[i];
         dryr  = in[i + 1];
+
+        volume = vol.Process() * 20.0f;
 
         freq = 5000 + (lfo.Process() * 5000);
 
         flt.SetFreq(freq);
-        outputl = flt.Process(dryl);
-        outputr = flt.Process(dryr);
+        outputl = flt.Process(dryl) * volume;
+        outputr = flt.Process(dryr) * volume;
 
         if(bypass)
         {
@@ -79,8 +81,9 @@ int main(void)
 
     // Initialize your knobs here like so:
     lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.1f, 0.999f, Parameter::LINEAR);
-    amplitude.Init(hw.knob[Terrarium::KNOB_2], 0.5f, 0.999f, Parameter::LINEAR);
+    amplitude.Init(hw.knob[Terrarium::KNOB_2], 0.65f, 0.999f, Parameter::LINEAR);
     res_freq.Init(hw.knob[Terrarium::KNOB_3], 0.1f, 0.8f, Parameter::LOGARITHMIC);
+    vol.Init(hw.knob[Terrarium::KNOB_4], 0.05f, 0.999f, Parameter::LINEAR); // TODO: Make PR for anti logarithmic
 
 
     // Init the LEDs and set activate bypass
