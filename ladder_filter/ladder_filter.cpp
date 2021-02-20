@@ -88,7 +88,7 @@ int main(void)
     lfo.SetFreq(.4);
 
     // Initialize your knobs here like so:
-    lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.01f, 0.999f, Parameter::LOGARITHMIC);
+    lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.005f, 0.15f, Parameter::LOGARITHMIC);
     amplitude.Init(hw.knob[Terrarium::KNOB_2], 0.65f, 0.999f, Parameter::LINEAR);
     res_freq.Init(hw.knob[Terrarium::KNOB_3], 0.1f, 0.4f, Parameter::LOGARITHMIC);
     cut_freq.Init(hw.knob[Terrarium::KNOB_4], 0.1f, 0.999f, Parameter::LINEAR);
@@ -97,6 +97,7 @@ int main(void)
 
     // Init the LEDs and set activate bypass
     led1.Init(hw.seed.GetPin(Terrarium::LED_1),false);
+    led2.Init(hw.seed.GetPin(Terrarium::LED_2),false, 10000.0f);
     led1.Update();
     bypass = true;
 
@@ -104,7 +105,8 @@ int main(void)
     hw.StartAudio(callback);
     while(1)
     {
-        // Do Stuff Infinitely Here
-        System::Delay(10);
+        // Show LFO rate with second LED
+        led2.Set(lfo.Process());
+        led2.Update();
     }
 }
