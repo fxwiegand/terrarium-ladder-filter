@@ -7,7 +7,7 @@ An adaption of the moog ladder filter for the [terrarium](https://www.pedalpcb.c
 
 ## Author
 
-Felix Wiegand
+[Felix Wiegand](https://github.com/fxwiegand)
 
 ## Controls
 
