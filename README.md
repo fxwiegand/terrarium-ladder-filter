@@ -1,5 +1,8 @@
 # Ladder Filter
 
+![Platform](https://img.shields.io/badge/platform-terrarium-lightgrey)
+![Github Downloads](https://img.shields.io/github/downloads/fxwiegand/terrarium-ladder-filter/total?color=green)
+
 An adaption of the moog ladder filter for the [terrarium](https://www.pedalpcb.com/product/pcb351/) from [PedalPCB](https://www.pedalpcb.com).
 
 ## Author
