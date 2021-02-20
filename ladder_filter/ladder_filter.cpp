@@ -65,6 +65,7 @@ int main(void)
 
     hw.Init();
     samplerate = hw.AudioSampleRate();
+    hw.SetAudioBlockSize(12);
 
     // initialize Moogladder object
     flt.Init(samplerate);
@@ -80,9 +81,6 @@ int main(void)
     lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.1f, 0.999f, Parameter::LINEAR);
     amplitude.Init(hw.knob[Terrarium::KNOB_2], 0.5f, 0.999f, Parameter::LINEAR);
     res_freq.Init(hw.knob[Terrarium::KNOB_3], 0.1f, 0.8f, Parameter::LOGARITHMIC);
-
-    // Set samplerate for your processing like so:
-    // verb.Init(samplerate);
 
 
     // Init the LEDs and set activate bypass
