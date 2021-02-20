@@ -1,8 +1,8 @@
 # Project Name
-TARGET = your_pedal
+TARGET = ladder_filter
 
 # Sources
-CPP_SOURCES = your_pedal.cpp
+CPP_SOURCES = ladder_filter.cpp
 
 # Library Locations
 LIBDAISY_DIR = ../libdaisy

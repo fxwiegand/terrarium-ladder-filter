@@ -1,24 +1,16 @@
-# terrarium-stand
-This repository works as a template for new pedals created for the [terrarium](https://www.pedalpcb.com/product/pcb351/) from [PedalPCB](https://www.pedalpcb.com).
-To create a new pedal, simply create a new git repository using this template and start out with the basic structure in the `your_pedal` directory. Change the name of the directory to whatever you like but make sure you also change `TARGET = your_pedal` in `your_pedal/Makefile`.
+# Ladder Filter
 
-## Getting started
-Build the daisy libraries with:
-```
-cd DaisySP
-make
-cd ../libDaisy
-make
-```
+An adaption of the moog ladder filter for the [terrarium](https://www.pedalpcb.com/product/pcb351/) from [PedalPCB](https://www.pedalpcb.com).
 
-Then flash your terrarium with:
-```
-cd your_pedal
-# using USB (after entering bootloader mode)
-make program-dfu
-# using JTAG/SWD adaptor (like STLink)
-make program
-```
+## Author
 
-Note: The template pedal only turns the LED of the terrarium on and off and does no audio processing at all.
-For an example with audio processing generated from this template you can checkout a [reverb](https://github.com/fxwiegand/terrarium-reverb).
+Felix Wiegand
+
+## Controls
+
+| Control | Parameter | Comment |
+| --- | --- | --- |
+| Knob 1 | LFO Speed | Controls the LFO Speed |
+| Knob 2 | Intensity | The intensity of the filter |
+| Knob 3 | Frequency | Controls the resonance frequency of the filter |
+| Switch 1 | Bypass | Puts the pedal in bypass mode |
