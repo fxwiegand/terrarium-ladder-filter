@@ -11,7 +11,8 @@ DaisyPetal hw;
 MoogLadder flt;
 Oscillator lfo;
 
-bool      bypass;
+bool bypass;
+bool waveform;
 
 Led led1, led2;
 
@@ -26,6 +27,12 @@ void callback(float *in, float *out, size_t size)
     lfo.SetFreq(lfo_speed.Process() * 5.0f);
     lfo.SetAmp(amplitude.Process());
     flt.SetRes(res_freq.Process());
+
+    if (hw.switches[Terrarium::SWITCH_1].Pressed()) {
+        lfo.SetWaveform(Oscillator::WAVE_SIN);
+    } else {
+        lfo.SetWaveform(Oscillator::WAVE_TRI);
+    }
 
     // (De-)Activate bypass and toggle LED when left footswitch is pressed
     if(hw.switches[Terrarium::FOOTSWITCH_1].RisingEdge())
