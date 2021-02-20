@@ -23,7 +23,7 @@ void callback(float *in, float *out, size_t size)
     hw.ProcessAllControls();
     led1.Update();
     led2.Update();
-    lfo.SetFreq(lfo_speed.Process());
+    lfo.SetFreq(lfo_speed.Process() * 5.0f);
     lfo.SetAmp(amplitude.Process());
     flt.SetRes(res_freq.Process());
 
@@ -80,7 +80,7 @@ int main(void)
     lfo.SetFreq(.4);
 
     // Initialize your knobs here like so:
-    lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.1f, 0.999f, Parameter::LINEAR);
+    lfo_speed.Init(hw.knob[Terrarium::KNOB_1], 0.01f, 0.999f, Parameter::LOGARITHMIC);
     amplitude.Init(hw.knob[Terrarium::KNOB_2], 0.65f, 0.999f, Parameter::LINEAR);
     res_freq.Init(hw.knob[Terrarium::KNOB_3], 0.1f, 0.8f, Parameter::LOGARITHMIC);
     vol.Init(hw.knob[Terrarium::KNOB_4], 0.05f, 0.999f, Parameter::LINEAR); // TODO: Make PR for anti logarithmic
