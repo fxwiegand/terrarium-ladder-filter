@@ -12,7 +12,8 @@ Felix Wiegand
 | --- | --- | --- |
 | Knob 1 | LFO Speed | Controls the LFO Speed |
 | Knob 2 | Intensity | The intensity of the filter |
-| Knob 3 | Frequency | Controls the resonance frequency of the filter |
-| Knob 4 | Volume | Controls the overall output volume |
+| Knob 3 | Resonance Frequency | Controls the resonance frequency of the filter |
+| Knob 4 | Cutoff Frequency | Controls the cutoff frequency of the filter |
+| Knob 5 | Volume | Controls the overall output volume |
 | Switch 1 | LFO Waveform | On = Sine / Off = Triangle |
 | Footswitch 1 | Bypass | Puts the pedal in bypass mode |
