@@ -5,7 +5,7 @@ TARGET = ladder_filter
 CPP_SOURCES = ladder_filter.cpp
 
 # Library Locations
-LIBDAISY_DIR = ../libdaisy
+LIBDAISY_DIR = ../libDaisy
 DAISYSP_DIR = ../DaisySP
 
 # Core location, and generic Makefile.
